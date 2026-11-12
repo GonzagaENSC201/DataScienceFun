@@ -15,6 +15,24 @@ def plot_data(x, y):
     # the 2 charts will be side by side in one row
     fig, axes = plt.subplots(1, 2, figsize=(12, 4)) # 12" width x 4" height
 
+    # chart 1: basic
+    ax = axes[0]
+    ax.plot(x, y, label="Random data in [1, 101)",
+            color="red", lw=5)
+    ax.set_title("Chart 1")
+    ax.set_xlabel("X Units")
+    ax.set_ylabel("Y Units")
+    ax.legend()
+    ax.grid()
+
+    # chart 2: point of interest and adding a reference line
+    ax = axes[1]
+    ax.plot(x, y)
+    ax.plot([x[4]], y[4], label="Point of Interest", marker="X", ms=10)
+    ax.axhline(y.mean(), color="cyan", lw=5, ls="--", label="Y Mean")
+    ax.legend()
+
+
 
     fig.tight_layout() # good to call last, after adding all figure components
 
@@ -31,6 +49,6 @@ def main():
 
     # 2nd demo: using the "object oriented" interface (more control)
     plot_data(x, y)
-    plt.savefig("demo.png") # instead of showing window, let's save figure to a file
+    plt.savefig("demo_s2.png") # instead of showing window, let's save figure to a file
 
 main()
