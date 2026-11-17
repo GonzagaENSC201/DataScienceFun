@@ -14,6 +14,8 @@ def plot_data(x, y):
     # let's have 2 charts in one "figure"
     # the 2 charts will be side by side in one row
     fig, axes = plt.subplots(1, 2, figsize=(12, 4)) # 12" width x 4" height
+    # tuesday 11/17 warm-up task #1
+    fig.suptitle("Subplots Demo", fontsize=15, fontweight="bold")
 
     # chart 1: basic
     ax = axes[0]
@@ -29,6 +31,9 @@ def plot_data(x, y):
     ax = axes[1]
     ax.plot(x, y)
     ax.plot([x[4]], y[4], label="Point of Interest", marker="X", ms=10)
+    # tuesday 11/17 warm-up task #2
+    ax.annotate("Point of Interest #2", xy=(x[7], y[7]), 
+                xytext=(x[7], y[7] + 20), arrowprops={"facecolor": "black"})
     ax.axhline(y.mean(), color="cyan", lw=5, ls="--", label="Y Mean")
     ax.legend()
 

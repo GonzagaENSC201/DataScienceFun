@@ -13,6 +13,8 @@ import matplotlib.pyplot as plt
 def plot_data(x, y):
     # let's have one figure with 2 charts in a row
     fig, axes = plt.subplots(1, 2, figsize=(12, 4)) # 12" width x 4" height
+    # tuesday 11/17 warm-up task #1
+    fig.suptitle("Subplots Demo", fontsize=15, fontweight="bold")
 
     # chart 1: basic
     ax = axes[0]
@@ -29,6 +31,9 @@ def plot_data(x, y):
     ax.plot(x, y)
     ax.axhline(y.mean(), label="Y Mean", ls=":", color="green")
     ax.plot(x[3], y[4], marker="X", ms=10, label="Point of Interest")
+    # tuesday 11/17 warm-up task #2
+    ax.annotate("Point of Interest #2", xy=(x[7], y[7]), 
+            xytext=(x[7], y[7] + 20), arrowprops={"facecolor": "black"})
     ax.legend()
 
 
